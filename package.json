@@ -4,7 +4,8 @@
   "description": "my meme bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node premade.js"
   },
   "author": "Sriram",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "dashbot": "^10.1.1",
     "giphy-api": "^1.2.7",
     "google": "^2.1.0",
+    "heroku-cli": "^7.0.9",
     "node-9gag": "^0.2.4"
   }
 }
