@@ -1,1 +1,1 @@
-node premade.js
+worker: node premade.js
