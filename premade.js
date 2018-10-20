@@ -1,9 +1,8 @@
 'use strict';
-
+require('dotenv').config()
 const axios = require('axios');
-const giphy = require('giphy-api')('im2wgTOGVcDoNZvRHK2Uy0ZxM06iZ34x');
 const botkit = require('botkit');
-const dashbot = require('dashbot')('xoxp-353271521616-455697951538-458112584481-3206c22a613dee885ad5252d4b8e7730',
+const dashbot = require('dashbot')(process.env.API_TOKEN,
   {urlRoot: process.env.DASHBOT_URL_ROOT, debug:true}).slack;
 
 const controller = botkit.slackbot();
@@ -18,7 +17,7 @@ controller.middleware.receive.use(dashbot.receive);
 controller.middleware.send.use(dashbot.send);
 
 controller.spawn({
-  token: 'xoxb-353271521616-458914418181-dZ1oTraNkDgRbWhvustGjIC7'
+  token: process.env.BOT_TOKEN
 }).startRTM();
 
 controller.hears('hello',    ['direct_message','direct_mention','mention'],function(bot,message) {
@@ -86,3 +85,4 @@ controller.on(['direct_message','direct_mention','mention'], function(bot, messa
 // });
 
 console.log('Slack bot ready');
+console.log(process.env.BOT_TOKEN)
